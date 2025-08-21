@@ -1,0 +1,84 @@
+/* ChatContainer */
+.chat-container {
+  width: 400px;
+  height: 600px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* ChatHeader */
+.chat-header {
+  background: #1a3e9a;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+}
+
+/* ChatBody */
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #fff;
+}
+
+/* ChatMessage */
+.chat-message {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 70%;
+  clear: both;
+
+    /* 추가 */
+  word-wrap: break-word;      /* 긴 단어를 자동 줄바꿈 */
+  word-break: break-word;     /* 긴 단어 강제 줄바꿈 */
+  white-space: pre-wrap;      /* 공백 유지하면서 줄바꿈 */
+}
+
+
+
+.bot {
+  background: #e9f3ff;
+  float: left;
+}
+
+.user {
+  background: #f1f1f1;
+  float: right;
+}
+
+/* ChatFooter */
+.chat-footer {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 0 0 0 10px;
+}
+
+.chat-footer button {
+  padding: 12px 20px;
+  border: none;
+  background: #1a3e9a;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 0 10px 0;
+}
+
+/* 전체 배경 */
+body {
+  background: #f4f7fb;
+  margin: 0;
+  padding: 0;
+}
