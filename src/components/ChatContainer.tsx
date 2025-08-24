@@ -14,19 +14,23 @@ export default function ChatContainer() {
   ]);
 
   const handleSend = (message: string) => {
-    setMessages((prev) => [...prev, { text: message, sender: 'user' }]);
+  const loadingMsg: Message = { text: '...', sender: 'bot' };
 
-    const loadingMsg: Message = { text: '...', sender: 'bot' };
-    setMessages((prev) => [...prev, loadingMsg]);
+  // 한 번에 배열 업데이트
+  setMessages((prev) => [
+    ...prev,
+    { text: message, sender: 'user' },
+    loadingMsg
+  ]);
 
-    setTimeout(() => {
-      setMessages((prev) =>
-        prev.map((msg) =>
-          msg === loadingMsg ? { text: 'This is a bot reply!', sender: 'bot' } : msg
-        )
-      );
-    }, 1000);
-  };
+  setTimeout(() => {
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg === loadingMsg ? { text: 'This is a bot reply!', sender: 'bot' } : msg
+      )
+    );
+  }, 1000);
+};
 
   return (
     <div className="chat-container">

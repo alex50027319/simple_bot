@@ -4,5 +4,12 @@ interface ChatMessageProps {
 }
 
 export default function ChatMessage({ text, sender }: ChatMessageProps) {
-  return <div className={`chat-message ${sender}`}>{text}</div>;
+  const side = sender === 'user' ? 'user' : 'bot';
+  return (
+    <div className={`chat-row ${side}`}>
+      <div className={`chat-message ${side}`}>
+        {text}
+      </div>
+    </div>
+  );
 }
