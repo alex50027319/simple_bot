@@ -26,47 +26,51 @@
   padding: 10px;
   overflow-y: auto;
   background: #fff;
+
+  /* 중요: 아래 두 줄로 메시지가 세로로 쌓이고, 마진 붕괴 이슈도 방지됨 */
+  display: flex;
+  flex-direction: column;
+  /* 선택: 마지막 말풍선 아래 약간 여유 */
+  padding-bottom: 8px;
 }
 
-/* ChatMessage */
+/* 정렬용 래퍼: 한 줄(row) */
+.chat-row {
+  display: flex;
+  margin: 5px 0;
+}
+.chat-row.user { justify-content: flex-end; } /* 사용자 → 오른쪽 */
+.chat-row.bot  { justify-content: flex-start; } /* 봇 → 왼쪽 */
+
+/* 말풍선 */
 .chat-message {
-  margin: 8px 0;
+  margin: 0;               /* 바깥 여백은 .chat-row에서 처리 */
   padding: 8px 12px;
   border-radius: 12px;
   max-width: 70%;
   clear: both;
 
-    /* 추가 */
-  word-wrap: break-word;      /* 긴 단어를 자동 줄바꿈 */
-  word-break: break-word;     /* 긴 단어 강제 줄바꿈 */
-  white-space: pre-wrap;      /* 공백 유지하면서 줄바꿈 */
+  /* 긴 텍스트/줄바꿈 처리 */
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
-
-
-.bot {
-  background: #e9f3ff;
-  float: left;
-}
-
-.user {
-  background: #f1f1f1;
-  float: right;
-}
+/* 말풍선 색상 (보이는 부분만 달라짐) */
+.chat-message.user { background: rgb(213, 221, 224); } /* 사용자 */
+.chat-message.bot  { background: #77ccdb; } /* 봇   */
 
 /* ChatFooter */
 .chat-footer {
   display: flex;
   border-top: 1px solid #ddd;
 }
-
 .chat-footer input {
   flex: 1;
   padding: 12px;
   border: none;
   border-radius: 0 0 0 10px;
 }
-
 .chat-footer button {
   padding: 12px 20px;
   border: none;
